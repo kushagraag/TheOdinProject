@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+  </head>
+
+  <body>
+    <script>
+      function computerPlay(){
+        const number = Math.floor((Math.random() * 3)) + 1;
+        if(number == 1){
+          return 'rock';
+        }
+        else if(number == 2){
+          return "paper";
+        }
+        else{
+          return "scissor";
+        }
+      }
+
+      let computerScore = 0;
+      let playerScore = 0;
+    
+      function playRound(playerSelection, computerSelection){
+        if(playerSelection = 'rock' && computerSelection == 'scissor'){
+          playerScore++;
+          return `You win! Score: ${playerScore} to ${computerScore}`;
+        } else if(playerSelection = 'rock' && computerSelection == 'paper'){
+          computerScore++;
+          return `You loose! Score: ${playerScore} to ${computerScore}`;
+        } else if(playerSelection = 'scissor' && computerSelection == 'paper'){
+          playerScore++;
+          return `You win! Score: ${playerScore} to ${computerScore}`;
+        } else if(playerSelection = 'scissor' && computerSelection == 'rock'){
+          computerScore++;
+          return `You loose! Score: ${playerScore} to ${computerScore}`;
+        } else if(playerSelection = 'paper' && computerSelection == 'rock'){
+          playerScore++;
+          return `You win! Score: ${playerScore} to ${computerScore}`;
+        } else if(playerSelection = 'paper' && computerSelection == 'scissor'){
+          computerScore++;
+          return `You loose! Score: ${playerScore} to ${computerScore}`;
+        }
+        else{
+          return `Its a draw! Score: ${playerScore} to ${computerScore}`;
+        }
+      }
+
+      function game() {
+        while(playerScore<5 && computerScore<5){
+          let playerSelection = prompt('Type: Rock, Paper or Scissor');
+          playerSelection = playerSelection.toLowerCase();
+          const computerSelection = computerPlay();
+          console.log(playRound(playerSelection, computerSelection));
+        }
+        if(playerScore > computerScore){
+          console.log(`You're the winner! Final Score: ${playerScore} to ${computerScore}`);
+        } else{
+          console.log(`You loose!!! Final score: ${playerScore} to ${computerScore}`);
+        }
+      }
+
+      game();
+
+    </script>
+  </body>
+</html>
