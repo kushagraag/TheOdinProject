@@ -10,6 +10,7 @@
   <body>
     <h1> Open Console log to view Scores . Refresh after that</h1>
     <script>
+
       function computerPlay(){
         const number = Math.floor((Math.random() * 3)) + 1;
         if(number == 1){
@@ -64,6 +65,8 @@
           console.log(`You loose!!! Final score: ${playerScore} to ${computerScore}`);
         }
       }
+
+      alert("Open Console first, than refresh the page");
 
       game();
 
