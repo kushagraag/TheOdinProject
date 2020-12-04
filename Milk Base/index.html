@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Ristorante Con Fusion</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+         <div class="container">
+            <button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#demo">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ml-auto" href="#"><img src="img/logo.png" height="30" width="41"></a>
+            <div id="demo" class="collapse navbar-collapse" >
+                <ul class="navbar-nav mr-auto">
+                   <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#aboutus"><span class="fa fa-info fa-lg"></span> About</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#contactus"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
+                </ul>
+                <span class="navbar-text">
+                    <a id="loginBtn">
+                        <span class="fa fa-sign-in"></span> Vendor Login
+                    </a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LogIn Modal -->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                    <button type="button" class="close" id="closeX">
+                        x
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" id="cancelBtn">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Place an order Modal -->
+    <div id="placeAnOrder" class="modal fade" role="dailog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Place an order</h4>
+                    <button type="button" class="close" id="closeplaceAnOrder">x</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="noofcartons" class="col-md-2 col-form-label">Number of Cartons</label>
+                            <div class="col-md-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                    <label class="form-check-label" for="inlineRadio2">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                    <label class="form-check-label" for="inlineRadio2">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                    <label class="form-check-label" for="inlineRadio2">5</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                                    <label class="form-check-label" for="inlineRadio2">6</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="type" class="col-md-2 col-form-label">Type</label> 
+                            <div class="col-md-4">
+                                <div class="btn-group btn-group-toggle">
+                                    <label class="btn btn-success active" id="toned">
+                                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Toned
+                                    </label>
+                                    <label class="btn btn-danger" id="with_cream">
+                                        <input type="radio" name="options" id="option2" autocomplete="off"> With Cream
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="date" class="col-md-2 col-form-label">Date</label>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-md-2 col-form-label">Address</label>
+                            <div class="col-md-6">
+                                <input type = "text" class="form-control" id = "address" name = "address" placeholder="Address">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-10">
+                                <button type="button" class="btn btn-secondary ml-auto" id="cancelPlaceAnOrder">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Place Order</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class = "col-12 col-sm-6">
+                    <h1>Milk Base</h1>
+                    <p>We delivers milk, bread, eggs, butter, juices and other daily need items every morning, right at your doorstep, free of charge.</p>
+                </div>
+                <div class="col-12 col-sm align-self-center">
+                    <img src="img/logo.png" class="img-fluid">
+                </div>
+                <div class="col-12 col-sm align-self-center">
+                    <a class="btn btn-block nav-link btn-warning" id="placeorder" >
+                        Place an order
+                    </a>    
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!--About us-->
+    <div class="container" id = "aboutus">
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <h3>About Us</h3>
+            <hr />
+          </div>
+        </div>
+  
+        <div class="row-content row">
+          <div class="col-sm-6">
+            <h2>Our History</h2>
+            <p>
+              Started in 2020, Milk Base has quickly established itself as
+              a culinary icon par excellence in Etawah. With its superior quality of products, without any added preservatives,
+              it remains superior in its quality.
+            </p>
+            <p>
+              The Milk Bus traces its humble beginnings to
+              <em>Milk to all</em>, a successful chain started by our CEO, Miss.
+              Devyani Chaturvedi, that make everyone lick to the bottom.
+            </p>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <h3 class="card-header bg-primary text-white">Facts At a Glance</h3>
+              <div class="card-body">
+                <dl class="row">
+                  <dt class="col-6">Started</dt>
+                  <dd class="col-6">3 Feb, 2020</dd>
+                  <dt class="col-6">Major Stake Holder</dt>
+                  <dd class="col-6">Et. dairy farm</dd>
+                  <dt class="col-6">Employees</dt>
+                  <dd class="col-6">10</dd>
+                </dl>
+              </div> 
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card card-body bg-light">
+              <blockquote class="blockquote">
+                <p class="mb-0">
+                  The cow is bovine ilk;
+                  one end is moo, the other milk.
+                </p>
+                <footer class="blockquote-footer">Ogden Nash
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+          </div>
+          <div class="col-12 col-sm-3"></div>
+        </div>
+      </div>
+
+
+    <!-- Contact Us -->
+    <div class="container" id = "contactus">
+        <div class="row">
+          <div class="col-12">
+            <br>
+            <h3>Contact Us</h3>
+            <hr />
+          </div>
+        </div>
+  
+        <div class="row row-content">
+          <div class="col-12">
+            <h3>Location Information</h3>
+          </div>
+          <div class="col-12 col-sm-4 offset-sm-1">
+            <h5>Our Address</h5>
+            <address style="font-size: 100%">
+                007, Milk Base Warehouse, <br>Bootanical Garden, <br> Delhi<br>
+              <i class="fa fa-phone"></i> : +91 9989987882<br />
+              <i class="fa fa-fax"></i>: +852 8765 4321<br />
+              <i class="fa fa-envelope"></i>:
+              <a href="mailto:contact@milkbase.net">contact@milkbase.net</a>
+            </address>
+          </div>
+          <div class="col-12 col-sm-6 offset-sm-1">
+            <h5>Map of our Location</h5>
+          </div>
+          <div class="col-12 col-sm-11 offset-sm-1">
+            <div class="btn-group" role="group">
+              <a role="button" class="btn btn-primary" href="tel:+9767787677896"><i class="fa fa-phone"></i> Call</a>
+              <a role="button" class="btn btn-info"><i class="fa fa-skype"></i> Skype</a>
+              <a role="button" class="btn btn-success" href="mailto:kushjanhvi@gmail.com"><i class="fa fa-envelope-o"></i> Email</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row row-content">
+          <div class="col-12">
+            <h3>Send us your Feedback</h3>
+          </div>
+          <div class="col-12 col-md-9">
+            <form>
+              <div class="form-group row">
+                <label for="firstname" class="col-md-2 col-form-label">First Name</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" id="firstname" name="firstname"
+                      placeholder="First Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
+                <div class="col-md-10"> 
+                  <input type="text" class="form-control" id="lastname" name="lastname"
+                      placeholder="Last Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="telnum" class="col-12 col-md-2 col-form-label">Contact No.</label>
+                <div class="col-5 col-md-3">
+                  <input type="tel" class="form-control" id="areacode" name="areacode"
+                      placeholder="Area Code">
+                </div>
+                <div class="col-7 col-md-7">
+                  <input type="tel" class="form-control" id="telnum" name="telnum"
+                      placeholder="Tel. Number">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="emailid" class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-10">
+                  <input type="email" class="form-control" id="emailid" name="emailid"
+                      placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-6 offset-md-2">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input"
+                      name="approve" id="approve" value="">
+                    <label class="form-check-label" for="approve">
+                      <strong>May we contact you?</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3 offset-md-1">
+                  <select class="form-control">
+                    <option>Tel.</option>
+                    <option>Email</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="feedback" class="col-md-2 col-form-label">Your Feedback</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="feedback" name="feedback"
+                    rows="8"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="offset-md-2 col-md-10">
+                  <button type="submit" class="btn btn-primary">Send Feedback</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-12 col-md"></div>
+        </div>
+      </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">             
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#aboutus">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#contactus">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              007, Milk Base Warehouse, <br>Bootanical Garden, <br> Delhi<br>
+		              <i class="fa fa-phone fa-lg"></i> : +91 9989987882<br>
+		              <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+		              <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:contact@milkbase.net">contact@milkbase.net</a>
+		           </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i> </a>
+                        <a class="btn btn-social-icon btn-facebook"href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin"href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter"href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google"href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon"href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2020 Milk Base</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#mycarousel').carousel({ interval: 2000 });
+            $('#carouselButton').click(function() {
+                if ($('#carouselButton').children('span').hasClass('fa-pause')) {
+                    $('#mycarousel').carousel('pause');
+                    $('#carouselButton').children('span').removeClass('fa-pause');
+                    $('#carouselButton').children('span').addClass('fa-play');
+                }
+                else if ($('#carouselButton').children('span').hasClass('fa-play')) {
+                    $('#mycarousel').carousel('cycle');
+                    $('#carouselButton').children('span').removeClass('fa-play');
+                    $('#carouselButton').children('span').addClass('fa-pause');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#loginBtn').click(function() {
+                if($('#loginModal').hasClass('show')){
+                    $('#loginModal').modal('hide');
+                    $('#loginModal').removeClass('show');
+                }
+                else{
+                    $('#loginModal').modal('show');
+                    $('#loginModal').addClass('show');
+                }
+            });
+            $('#cancelBtn').click(function () {
+                $('#loginModal').modal('hide');
+                $('#loginModal').removeClass('show');
+            });
+            $('#closeX').click(function () {
+                $('#loginModal').modal('hide');
+                $('#loginModal').removeClass('show');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#placeorder').click(function () {
+                if($('#placeAnOrder').hasClass('show')){
+                    $('#placeAnOrder').modal('hide');
+                    $('#placeAnOrder').removeClass('show');
+                }
+                else{
+                    $('#placeAnOrder').modal('show');
+                    $('#placeAnOrder').addClass('show');
+                }
+            });
+            $('#closeplaceAnOrder').click(function () {
+                $('#placeAnOrder').modal('hide');
+                $('#placeAnOrder').removeClass('show');
+            });
+            $('#cancelPlaceAnOrder').click( function() { 
+                $('#placeAnOrder').modal('hide');
+                $('#placeAnOrder').removeClass('show');
+            });
+            $('#with_cream').click( function () {
+                $('#toned').removeClass('active');
+                $('#with_cream').addClass('active');
+            });
+            $('#toned').click( function () {
+                $('#with_cream').removeClass('active');
+                $('#toned').addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
