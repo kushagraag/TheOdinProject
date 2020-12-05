@@ -1,0 +1,4 @@
+-- remove prompt and add somewhere to enter no of squares
+-- add color palette
+-- add click to start functionality
+-- make buttons and bg better
